@@ -33,10 +33,7 @@ class MainActivity : AppCompatActivity (), CallbackGlue {
     private var isObserverRegistered: Boolean = false
     private var mCurrentPhotoPath: String? = null
     private var PERMISSION_REQUEST_CODE = 10
-
-    val bitmapConverter: BitmapConverter by lazy {
-        BitmapConverter()
-    }
+    private val photoModelAdapter = PhotoModelAdapter(ArrayList())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,29 +81,6 @@ class MainActivity : AppCompatActivity (), CallbackGlue {
                 Log.d(TAG, "gooby pls")
 
             })
-
-
-//            if(photoUri != null) {
-//                onRegisterObserver(photoUri!!)
-//            }
-
-
-//            if(data == null) {
-//                Log.d(TAG, "onActivityResult data is null (REQUEST_TAKE_IMAGE")
-//            }
-//
-//            if(data != null && data.extras == null) {
-//                Log.d(TAG, "onActivityResult data.extras is null (REQUEST_TAKE_IMAGE)")
-//            }
-//
-//            if(data != null && data.extras != null) {
-//                val photoUri = data.extras!!.get(MediaStore.EXTRA_OUTPUT) as Uri
-//                Log.d(TAG, "onActivityResult photoUri: ${photoUri.path}")
-//                // http request to your server
-//                onRegisterObserver(photoUri)
-//            } else {
-//                Log.d(TAG, "onActivityResult data (REQUEST_TAKE_IMAGE): $data or ${data?.extras}")
-//            }
         }
     }
 
@@ -123,35 +97,6 @@ class MainActivity : AppCompatActivity (), CallbackGlue {
                 )
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, uri)
                 startActivityForResult(takePictureIntent, REQUEST_TAKE_IMAGE)
-
-//                val photoFile: File? = try {
-//                    createImageFile()
-//                } catch(ex: IOException) {
-//                    null
-//                }
-//
-//                if(photoFile == null) {
-//                    Log.d(TAG, "dispactchTakePictureIntent with photoFile being null")
-//                }
-//
-//
-//                if(photoFile != null) {
-//                    photoUri = FileProvider.getUriForFile(this, "com.example.android.fileprovider", photoFile)
-//                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri)
-//                    startActivityForResult(takePictureIntent, REQUEST_TAKE_IMAGE)
-//                }
-
-//                photoFile?.also {
-//                    val photoURI: Uri = FileProvider.getUriForFile(
-//                        this,
-//                        "com.example.android.fileprovider",
-//                        it
-//                    )
-//
-//
-//                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
-//                    startActivityForResult(takePictureIntent, REQUEST_TAKE_IMAGE)
-//                }
             }
         }
     }

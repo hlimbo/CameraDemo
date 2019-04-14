@@ -8,15 +8,16 @@
             android:text="TextView"
             android:layout_width="0dp"
             android:layout_height="33dp"
-            android:id="@+id/textView6"
-            app:layout_constraintStart_toEndOf="@+id/textView3" android:layout_marginEnd="232dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:textSize="18sp" android:layout_marginTop="16dp"/>
+            android:id="@+id/nutritional_label"
+            android:textSize="18sp" android:layout_marginEnd="72dp"
+            app:layout_constraintEnd_toStartOf="@+id/nutritional_value"
+            app:layout_constraintBaseline_toBaselineOf="@+id/nutritional_value"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"/>
     <TextView
             android:text="TextView"
             android:layout_width="0dp"
             android:layout_height="33dp"
-            android:id="@+id/textView5"
+            android:id="@+id/nutritional_value"
             android:layout_marginEnd="120dp"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
             android:textSize="18sp" android:layout_marginTop="16dp"/>

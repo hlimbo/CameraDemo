@@ -17,3 +17,5 @@ data class Food(val name: String,
                 val vitaminC: String,
                 val calcium: String,
                 val iron: String)
+
+data class NutritionRecordModel(val label: String, val value: String)
